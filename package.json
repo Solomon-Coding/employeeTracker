@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.1.2"
+  },
+  "name": "employeetracker",
+  "description": "SQL Challenge: Employee Tracker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solomon-Coding/employeeTracker.git"
+  },
+  "author": "Solomon Vana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solomon-Coding/employeeTracker/issues"
+  },
+  "homepage": "https://github.com/Solomon-Coding/employeeTracker#readme"
+}
