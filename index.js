@@ -6,6 +6,7 @@ const cTable = require('console.table');    // Import and require console.table
 // Connect to database
 const db = mysql.createConnection(
     {
+      host: 'localhost',
       user: 'root',
       password: 'C0d!ng',
       database: 'company_db'
@@ -37,6 +38,18 @@ const addEmployeeQuestions = [
   },
 ];
 
+// ----- QUERY PROMPTS ----- //
+const viewEmployees = 
+  'SELECT * FROM employee;';
+
+const viewRoles = 
+  'SELECT role.id, role.title, department.name AS department,role.salary'
+  + '\nFROM role JOIN department \nON role.department_id = department.id'
+  + '\nORDER BY role.id;';
+
+const viewDepartments = 
+  'SELECT * FROM department;';
+
 // Initialization function.
 function init(questions) {
   console.log()
@@ -50,38 +63,39 @@ function init(questions) {
 
 init(menuQuestions)
 
-
 function menu(prompt){
 let sql;
 let params;
   switch(prompt) {
     case "View All Employees":
-      sql = 'SELECT * FROM employee;';
+      sql = viewEmployees;
       params = [];
       Query(sql,params);
-      init(menuQuestions);
+      // init(menuQuestions);
       break;
 
     case "Add Employee":
       addEmployee(addEmployeeQuestions);
-      init(menuQuestions);
+      // init(menuQuestions);
       break;
 
     case "View All Roles":
-      sql = 'SELECT * FROM role;';
+      sql = viewRoles;
       params = [];
       Query(sql,params);
-      init(menuQuestions);
+      // init(menuQuestions);
       break;
 
     case "View All Departments":
-      sql = 'SELECT * FROM department;';
+      sql = viewDepartments;
       params = [];
       Query(sql,params);
-      init(menuQuestions);
+      // init(menuQuestions);
       break;
 
     case "Quit":
+      console.log("\nGoodbye")
+      db.end();
       break;
   };
 }
@@ -89,6 +103,7 @@ let params;
 // Function the completes query requests
 function Query(sql,params){
   db.query(sql, params, (err, result) => {
+    console.log("\n")
     console.table(result)
 });
 }
