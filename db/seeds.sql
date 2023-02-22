@@ -16,7 +16,8 @@ VALUES (1, "Sales Lead", 100000, 4),
        (8, "Lawyer", 190000, 3);
 
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
-VALUES (1, "Fred", "Bob", 2, NULL)
+VALUES (1, "Fred", "Bob", 2, 1),
+       (2, "Fredy", "Bobby", 3, 1);
 
 
 -- INSERT INTO movies (movie_name)
