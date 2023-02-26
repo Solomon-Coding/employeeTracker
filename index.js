@@ -2,9 +2,11 @@ const Menu = require('./lib/Menu');
 
 const menu = new Menu()
 
+// Initialization Function
 function init(){
-  menu.inquirerMenu()
-  // menu.inquirerFunction(menu.menuQuestions)
+
+  // Starts the main menu for the app
+  menu.inquirerMenu();
 }
 
 init()
