@@ -1,5 +1,10 @@
-SELECT movies.movie_name AS movie, reviews.review
-FROM reviews
-LEFT JOIN movies
-ON reviews.movie_id = movies.id
-ORDER BY movies.movie_name;
+SELECT employee.role_id 
+FROM employee
+WHERE department_id = VAL
+
+
+SELECT SUM(role.salary)
+FROM role
+WHERE role.id = employee.role_id IN (SELECT employee.role_id 
+                                    FROM employee
+                                    WHERE department_id = VAL)
